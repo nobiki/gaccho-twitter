@@ -1,6 +1,9 @@
 import Article
 
 class Twitter(Article.Article):
+    def color_pair(self):
+        return {"text":"WHITE", "back":"RED"}
+
     def get(self):
         print("Twitter::get")
 
