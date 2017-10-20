@@ -5,9 +5,7 @@ class Twitter(Article.Article):
         return {"text":"WHITE", "back":"RED"}
 
     def get(self):
-        print("Twitter::get")
-
-        timeline = [
+        return [
                 ("Twitter", "01", "2017-10-19 10:00:00"),
                 ("Twitter", "02", "2017-10-19 10:00:00"),
                 ("Twitter", "03", "2017-10-19 10:00:00"),
@@ -100,5 +98,3 @@ class Twitter(Article.Article):
                 ("Twitter", "98", "2017-11-19 10:00:00"),
                 ("Twitter", "99", "2017-11-19 10:00:00"),
                 ]
-
-        return timeline
