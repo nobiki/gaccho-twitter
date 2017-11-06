@@ -20,7 +20,7 @@ class Twitter(Article):
                 ("Twitter", "2017-10-19 10:00:02", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
                 ("Twitter", "2017-10-19 10:00:00", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
                 ("Twitter", "2017-10-19 10:00:01", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
-                ("Twitter", "2017-10-19 10:00:02", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
+                ("Twitter", "2017-10-19 10:00:02", "投稿者名", "", "http://example.com/?aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&aaa=bbb&ccc=0", "てきすとてきすとてきすとてきすと"),
                 ("Twitter", "2017-10-19 10:00:00", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
                 ("Twitter", "2017-10-19 10:00:01", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
                 ("Twitter", "2017-10-19 10:00:02", "投稿者名", "", "http://example.com/", "てきすとてきすとてきすとてきすと"),
