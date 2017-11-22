@@ -12,6 +12,8 @@ setup(
         url              = 'https://github.com/nobiki/gaccho_twitter.git',
         keywords         = 'gaccho twitter',
         packages         = find_packages(),
-        install_requires = [],
+        install_requires = [
+            "twitter==1.18.0",
+            ],
         )
 

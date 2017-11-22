@@ -1,5 +1,7 @@
 from Article import Article
 
+from twitter import *
+
 class Twitter(Article):
     def color_pair(self):
         return {"color_text":"WHITE", "color_back":"RED"}
