@@ -1,44 +1,55 @@
 from Article import Article
 
+import os
 import configparser
 
 from twitter import *
 
+# load config
+config = configparser.ConfigParser()
+config.read("gaccho.ini")
+conf = dict(config["Twitter"])
+
+if "consumer_key" in conf and "consumer_secret" in conf:
+    CONSUMER_KEY        = str(conf["consumer_key"])
+    CONSUMER_SECRET     = str(conf["consumer_secret"])
+
+# twitter oauth
+tw = {}
+for c in enumerate(config):
+    if "type" in config[c[1]] and "Twitter" == config[c[1]]["type"]:
+        item = c[1]
+        account = dict(config[item])
+
+        ACCOUNT_CREDS = "cache/.twitter_"+item+"_credentials"
+
+        if not os.path.exists(ACCOUNT_CREDS):
+            print("[gaccho_twitter] Please authenticate account @"+item)
+            oauth = oauth_dance("gaccho",CONSUMER_KEY, CONSUMER_SECRET, ACCOUNT_CREDS)
+
+        OAUTH_TOKEN, OAUTH_SECRET = read_token_file(ACCOUNT_CREDS)
+        tw[item] = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
+
 class Twitter(Article):
+
     def color_pair(self):
         return {"color_text":"WHITE", "color_back":"RED"}
 
     def get(self):
-        ret = []
-
         ## load config
         self.config = configparser.ConfigParser()
         self.config.read("gaccho.ini")
-        conf = dict(self.config["Twitter"])
 
-        if "CONSUMER_KEY" in conf and "CONSUMER_SECRET" in conf:
-            CONSUMER_KEY        = conf["CONSUMER_KEY"]
-            CONSUMER_SECRET     = conf["CONSUMER_SECRET"]
-
-            if "OAUTH_TOKEN" in conf and "OAUTH_SECRET" in conf:
-                OAUTH_TOKEN     = conf["OAUTH_TOKEN"]
-                OAUTH_SECRET    = conf["OAUTH_SECRET"]
-            else:
-                oauth = oauth_dance("gaccho",conf["CONSUMER_KEY"], conf["CONSUMER_SECRET_KEY"])
-                OAUTH_TOKEN     = oauth[0]
-                OAUTH_SECRET    = oauth[1]
-
-            t = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET_KEY) )
-
-            home = t.statuses.home_timeline()
-
+        ret = []
+        for account in tw:
+            home = tw[account].statuses.home_timeline()
             for line in home:
                 name = "@"+line["user"]["screen_name"]
                 published = line["created_at"]
                 author = line["user"]["screen_name"]
                 title = line["text"]
                 link = "https://twitter.com/"+line["user"]["screen_name"]+"/status/"+line["id_str"]
-                ret.append(("Twitter", name, str(published), author, title, link, self.strip_tags(value)))
+                ret.append((account, name, str(published), author, title, link, title))
 
         self.cache_save("cache/Twitter", ret)
 
