@@ -33,7 +33,7 @@ for c in enumerate(config):
 class Twitter(Article):
 
     def color_pair(self):
-        return {"color_text":"WHITE", "color_back":"RED"}
+        return {"color_text":"BLACK", "color_back":"CYAN"}
 
     def get(self):
         ## load config
@@ -46,10 +46,11 @@ class Twitter(Article):
             for line in home:
                 name = "@"+line["user"]["screen_name"]
                 published = line["created_at"]
-                author = line["user"]["screen_name"]
-                title = line["text"]
+                author = "@"+line["user"]["screen_name"]
+                title = line["user"]["name"]+": "+line["text"].replace("\n","")
+                value = line["text"]
                 link = "https://twitter.com/"+line["user"]["screen_name"]+"/status/"+line["id_str"]
-                ret.append((account, name, str(published), author, title, link, title))
+                ret.append((account, name, str(published), author, title, link, value))
 
         self.cache_save("cache/Twitter", ret)
 
