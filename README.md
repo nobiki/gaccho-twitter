@@ -45,8 +45,7 @@ Common setting concerning "type = Twitter"
 * interval (required):  
 Set the retention period of the local cache in minutes. (default: 60 minutes)
 
-* CONSUMER_KEY
-* CONSUMER_SECRET
+* CONSUMER_KEY and CONSUMER_SECRET (required):  
 You need consumer_key and consumer_secret issued from Twitter.  
 That's based on Twitter's API Terms of Service.
 
