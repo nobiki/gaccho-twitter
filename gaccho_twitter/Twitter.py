@@ -37,13 +37,13 @@ class Twitter(Article):
         return {"color_text":"BLACK", "color_back":"CYAN"}
 
     def get(self):
-        ## load config
-        self.config = configparser.ConfigParser()
-        self.config.read("gaccho.ini")
-
         ret = []
         for account in tw:
-            home = tw[account].statuses.home_timeline()
+            if "count" in conf:
+                home = tw[account].statuses.home_timeline(count=conf["count"])
+            else:
+                home = tw[account].statuses.home_timeline()
+
             for line in home:
                 name = "@"+line["user"]["screen_name"]
                 published = time.strftime('%Y-%m-%d %H:%M:%S', time.strptime(line["created_at"],'%a %b %d %H:%M:%S +0000 %Y'))

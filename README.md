@@ -49,10 +49,16 @@ Set the retention period of the local cache in minutes. (default: 60 minutes)
 You need consumer_key and consumer_secret issued from Twitter.  
 That's based on Twitter's API Terms of Service.
 
+* count (optional):  
+The number of tweets requested from the API. (Recommended: 100)  
+That's based on Twitter's API Terms of Service.
+
 ```
 [Twitter]
 interval = 5
 
 CONSUMER_KEY = xxxxxxxxxx
 CONSUMER_SECRET = xxxxxxxxxx
+
+count = 100
 ```
