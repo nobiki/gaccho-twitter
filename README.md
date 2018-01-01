@@ -17,8 +17,8 @@ Common setting of `type = Twitter` is set in the [Twitter] section
 * type (required)  
 Set "Twitter".
 
-* color_text (optional): [default](https://github.com/nobiki/gaccho_rss/blob/0.1/gaccho_twitter/Twitter.py#L37)
-* color_back (optional): [default](https://github.com/nobiki/gaccho_rss/blob/0.1/gaccho_twitter/Twitter.py#L37)
+* color_text (optional): [default](https://github.com/nobiki/gaccho_twitter/blob/0.1/gaccho_twitter/Twitter.py#L37)
+* color_back (optional): [default](https://github.com/nobiki/gaccho_twitter/blob/0.1/gaccho_twitter/Twitter.py#L37)
 
 * feeds (optional)  
 Set feeds to subscribe by line break separator.
