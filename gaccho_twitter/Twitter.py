@@ -45,7 +45,7 @@ class Twitter(Article):
             home = tw[account].statuses.home_timeline()
             for line in home:
                 name = "@"+line["user"]["screen_name"]
-                published = line["created_at"]
+                published = time.strftime('%Y-%m-%d %H:%M:%S', time.strptime(line["created_at"],'%a %b %d %H:%M:%S +0000 %Y'))
                 author = "@"+line["user"]["screen_name"]
                 title = line["user"]["name"]+": "+line["text"].replace("\n","")
                 value = line["text"]
