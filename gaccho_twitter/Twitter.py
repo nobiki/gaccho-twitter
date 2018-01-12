@@ -66,21 +66,17 @@ class Twitter(Article):
 
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("w"):
             ret["key_trigger"] = "tweet"
-            keywords["key_pair"] = ""
 
         ## re tweet tr
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("r"):
             ret["key_trigger"] = "retweet"
-            keywords["key_pair"] = ""
 
         ## del tweet td
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("d"):
             ret["key_trigger"] = "del tweet"
-            keywords["key_pair"] = ""
 
         ## fav tweet tf
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("f"):
             ret["key_trigger"] = "fav tweet"
-            keywords["key_pair"] = ""
 
         return ret
