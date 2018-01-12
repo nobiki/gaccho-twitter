@@ -60,9 +60,9 @@ class Twitter(Article):
     def controll(self, **keywords):
         ret = {"key_trigger":"","key_pair":keywords["key_pair"]}
 
-        ## tweet tw
+        ## tweet t
         if keywords["key_pair"] == "" and keywords["key"] == ord("t"):
-            keywords["key_pair"] = keywords["key"]
+            ret["key_pair"] = keywords["key"]
 
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("w"):
             ret["key_trigger"] = "tweet"
