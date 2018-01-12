@@ -61,7 +61,7 @@ class Twitter(Article):
         ret = {"key_trigger":"","key_pair":""}
 
         ## tweet tw
-        elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("w"):
+        if keywords["key_pair"] == ord("t") and keywords["key"] == ord("w"):
             ret["key_trigger"] = "tweet"
             keywords["key_pair"] = ""
 
