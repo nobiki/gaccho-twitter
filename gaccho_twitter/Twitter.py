@@ -62,6 +62,7 @@ class Twitter(Article):
 
         ## tweet t
         if keywords["key_pair"] == "" and keywords["key"] == ord("t"):
+            ret["key_trigger"] = "twitter trigger"
             ret["key_pair"] = keywords["key"]
 
         elif keywords["key_pair"] == ord("t") and keywords["key"] == ord("w"):
