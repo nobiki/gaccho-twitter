@@ -4,7 +4,7 @@ from setuptools import setup, find_packages
 
 setup(
         name             = 'gaccho_twitter',
-        version          = '0.1.2',
+        version          = '0.1.3',
         description      = 'Gaccho Twitter Plugin',
         license          = 'MIT',
         author           = 'nobiki',
