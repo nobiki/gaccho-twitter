@@ -30,6 +30,7 @@ for c in enumerate(config):
 
         OAUTH_TOKEN, OAUTH_SECRET = read_token_file(ACCOUNT_CREDS)
         tw[item] = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
+        api[item] = tw[item].Api()
 
 class Twitter(Article):
 
@@ -81,3 +82,6 @@ class Twitter(Article):
             ret["key_trigger"] = "fav tweet"
 
         return ret
+
+    def tweet(self, account, message):
+        return True
