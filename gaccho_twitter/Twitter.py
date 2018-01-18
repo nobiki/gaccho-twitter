@@ -83,7 +83,7 @@ class Twitter(Article):
         return ret
 
     def tweet(self, account, message):
-        if account in api:
+        if account in tw:
             tw[account].statuses.update(status=message)
 
         return True
