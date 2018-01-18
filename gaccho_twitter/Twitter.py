@@ -4,8 +4,7 @@ import os
 import time
 import configparser
 
-from twitter import Twitter, OAuth, read_token_file
-from twitter.api import Api
+from twitter import Twitter, Api, OAuth, read_token_file
 
 # load config
 config = configparser.ConfigParser()
