@@ -5,7 +5,6 @@ import time
 import configparser
 
 import twitter
-from twitter import read_token_file
 
 # load config
 config = configparser.ConfigParser()
