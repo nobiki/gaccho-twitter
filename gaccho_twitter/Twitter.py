@@ -4,7 +4,7 @@ import os
 import time
 import configparser
 
-import twitter
+from twitter import Twitter, Api, Oauth, read_token_file
 
 # load config
 config = configparser.ConfigParser()
@@ -29,8 +29,8 @@ for c in enumerate(config):
             oauth = oauth_dance("gaccho",CONSUMER_KEY, CONSUMER_SECRET, ACCOUNT_CREDS)
 
         OAUTH_TOKEN, OAUTH_SECRET = read_token_file(ACCOUNT_CREDS)
-        tw[item] = twitter.Twitter( auth=twitter.OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
-        api[item] = twitter.Api(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET, access_token_key=OAUTH_TOKEN, access_token_secret=OAUTH_SECRET)
+        tw[item] = Twitter( auth=OAuth(OAUTH_TOKEN, OAUTH_SECRET, CONSUMER_KEY, CONSUMER_SECRET) )
+        api[item] = Api(consumer_key=CONSUMER_KEY, consumer_secret=CONSUMER_SECRET, access_token_key=OAUTH_TOKEN, access_token_secret=OAUTH_SECRET)
 
 class Twitter(Article):
 
